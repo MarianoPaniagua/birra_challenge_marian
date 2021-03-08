@@ -42,7 +42,7 @@ public class MeetupEndpoint {
 
 	}
 
-	@PostMapping(path = { "/{meetupName}" })
+	@PostMapping(path = { "/{meetupDate}" })
 	@RestAdminAuth
 	public MeetupResponse createMeetup(HttpServletResponse response, HttpServletRequest request,
 			@RequestBody MeetupCreateRequest meetupCreate,
