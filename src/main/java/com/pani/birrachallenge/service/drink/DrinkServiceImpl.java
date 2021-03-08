@@ -23,9 +23,10 @@ public class DrinkServiceImpl implements DrinkService {
 	public int calculateHowManyBoxes(DrinkType drinkType, int people, String location, Long dateForMeetup) {
 
 		WeatherType weatherType = weatherService.getWeatherType(location, dateForMeetup);
-		//mas visible, el 6 constante
-		return (int) Math
-				.ceil((Double.valueOf(env.getProperty(drinkType.name() + "." + weatherType.name())) * people) / 6);
+
+		int boxes = (Integer.valueOf(env.getProperty(drinkType.name() + "." + weatherType.name())) * people)
+				/ Integer.valueOf(env.getProperty(drinkType.name() + ".box"));
+		return (int) Math.ceil((Double.valueOf(boxes)));
 	}
 
 }
